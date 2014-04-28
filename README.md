@@ -15,7 +15,7 @@ http://tlcalendar.francoisfaubert.com/calendar/majortournaments/cal.ics
 Some Handy Links
 ----------------
 
-[Fork me](https://bitbucket.org/francoisfaubert/team-liquid-calendar/) - Create your own version of this website
+[Fork me](https://github.com/francoisfaubert/team-liquid-calendar/) - Create your own version of this website
 
 [Website home](http://tlcalendar.francoisfaubert.com/) - Website
 
