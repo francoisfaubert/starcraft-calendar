@@ -15,7 +15,7 @@
 <h2>Some Handy Links</h2>
 
 <ul>
-<li><a href="https://bitbucket.org/francoisfaubert/team-liquid-calendar/">Fork Me</a> : Create your own version of this website</li>
+<li><a href="https://github.com/francoisfaubert/team-liquid-calendar">Fork Me</a> : Create your own version of this website</li>
 <li><a href="http://tlcalendar.francoisfaubert.com/">Homepage</a></li>
 </ul>
 
