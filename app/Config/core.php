@@ -383,3 +383,11 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+
+
+Cache::config('daily', array(
+    'engine' => 'File',
+    'duration' => '+1 day',
+    'probability' => 100,
+    'path' => CACHE . 'daily' . DS,
+));
