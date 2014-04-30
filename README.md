@@ -25,7 +25,7 @@ Developper information
 
 This website is built on CakePHP. All validated events are then stored in MySql. The database structure is packaged in the project inside the file ./dump.sql. You are expected to create and configure app/Config/database.php yourself.
 
-There are 4 required cron rules needed. One per calendar type, and another that updates the tournament details:
+There are 3 required cron rules needed. One per calendar type, and another that updates the tournament details:
 
 5 8 * * 6 curl -sL tlcalendar.francoisfaubert.com/cron/premiertournamentlist > /dev/null 2>&1
 
