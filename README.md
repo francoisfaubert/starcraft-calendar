@@ -12,12 +12,10 @@ http://tlcalendar.francoisfaubert.com/calendar/premiertournaments/cal.ics
 Major Stracraft 2 tournaments :
 http://tlcalendar.francoisfaubert.com/calendar/majortournaments/cal.ics
 
-Some Handy Links
-----------------
+Links
+-----
 
-[Fork me](https://github.com/francoisfaubert/team-liquid-calendar/) - Create your own version of this website
-
-[Website home](http://tlcalendar.francoisfaubert.com/) - Website
+http://tlcalendar.francoisfaubert.com/
 
 
 Developper information
