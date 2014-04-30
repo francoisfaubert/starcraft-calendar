@@ -4,11 +4,10 @@
 	<?php echo $this->Html->charset(); ?>
 	<title>Team Liquid Starcraft II Calendar</title>
 	<?php echo $this->Html->meta('icon');	?>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 </head>
 <body>
-	<header>
-		<h1>Team Liquid Calendar</h1>
-	</header>
 	<section id="content">
 		<?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>

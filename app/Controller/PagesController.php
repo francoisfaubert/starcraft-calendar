@@ -74,4 +74,14 @@ class PagesController extends AppController {
 			throw new NotFoundException();
 		}
 	}
+
+	public function home() {
+
+		$this->loadModel("TlEvent");
+		$data = $this->TlEvent->findAllActive();
+
+		$this->set("events", Hash::extract($data, "{n}.TlEvent"));
+		$this->set("title", "Team Liquid Calendar : Starcraft 2 tournaments schedule");
+		
+	}
 }

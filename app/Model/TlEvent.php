@@ -68,6 +68,24 @@ class TlEvent extends AppModel {
 		return $this->find("all", array("conditions" => array("is_validated" => false), "limit" => $limit));
 	}
 
+	public function findAllActive()
+	{
+		$result = Cache::read('active_notpassed', 'daily');
+        if (!$result) {
+            $result = $this->find("all", array(
+				"conditions" => array(
+					"or" => array(
+						"timestamp_end" => null,
+						"timestamp_end >" => time()
+						),
+					 "is_validated" => true),
+				"order" => array("timestamp_start" => "DESC")
+			));
+            Cache::write('active_notpassed', $result, 'daily');
+        }
+        return $result;
+	}
+
 	public function findAllActivePremier()
 	{
  		$result = Cache::read('active_premier', 'daily');
