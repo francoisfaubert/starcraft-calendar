@@ -1,7 +1,7 @@
 <div class="jumbotron">
 	<div class="container">
 		<h1>Team Liquid Calendar</h1>
-		<p class="lead">This project fetches curated data on Team Liquid and generates calenders of Starcraft II events that can be imported in Google Calendar, Outlook, iCal and other calendar applications which can read the <code>.ics</code> file format.</p>
+		<p class="lead">This project fetches curated data on Team Liquid and generates calendars of Starcraft II events that can be imported in Google Calendar, Outlook, iCal and other calendar applications which can read the <code>.ics</code> file format.</p>
 	</div>
 </div>
 
