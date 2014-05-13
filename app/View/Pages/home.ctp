@@ -46,7 +46,7 @@
 			            	<?php echo $this->Time->format($event["timestamp_end"], '%b %e'); ?>
 			        	</time>
 			        <?php else : ?>
-			        	[ungoing]
+			        	[ongoing]
 			        <?php endif; ?>
 			        </td>
 			    </tr>

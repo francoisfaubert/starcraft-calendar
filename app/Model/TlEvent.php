@@ -30,16 +30,16 @@ class TlEvent extends AppModel {
 			"timestamp_end" => null
 		);
 
-		// wiki TOC table is te only one with border-collapsing
+		// wiki TOC table is the only one with border-collapsing
 		if(preg_match_all('/<table style=\"border.+?>(.+?)<\/table>/', $html, $matches)) {
 			
 			foreach ($matches[1] as $idx => $rows) {
 				$text = strip_tags($rows);
-				if(preg_match('/Start&#160;Date:(\d{4}\-\d{2}-\d{2})/', $text, $matches)) {
+				if (preg_match('/Start&#160;Date:(\d{4}\-\d{2}-\d{2})/', $text, $matches)) {
 					$data["timestamp_start"] = strtotime($matches[1]);
 				}
 
-				if(preg_match('/End&#160;Date:(\d{4}\-\d{2}-\d{2})/', $text, $matches)) {
+				if (preg_match('/End&#160;Date:(\d{4}\-\d{2}-\d{2})/', $text, $matches)) {
 					$data["timestamp_end"] = strtotime($matches[1]);
 				}
 			}
