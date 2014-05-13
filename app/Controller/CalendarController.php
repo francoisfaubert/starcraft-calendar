@@ -4,7 +4,6 @@ class CalendarController extends AppController {
 	public function beforeFilter()
     {   
         $this->layout   = "text";   
-		$this->loadModel("TlEvent");
 
 		if(Configure::read('debug') < 1) {
 			header('Content-Type: text/calendar; charset=utf-8');
@@ -14,8 +13,20 @@ class CalendarController extends AppController {
 		}
     }
 
+	public function wcs($name)
+	{
+		$this->loadModel("WcsEvent");
+		$data = $this->WcsEvent->findAllActive();
+
+		$this->set("events", Hash::extract($data, "{n}.WcsEvent"));
+		$this->set("title", "WCS Tournaments");
+		
+		$this->render("index");
+	}
+
 	public function premiertournaments($name)
 	{
+		$this->loadModel("TlEvent");
 		$data = $this->TlEvent->findAllActivePremier();
 
 		$this->set("events", Hash::extract($data, "{n}.TlEvent"));
@@ -26,6 +37,7 @@ class CalendarController extends AppController {
 
 	public function majortournaments($name)
 	{
+		$this->loadModel("TlEvent");
 		$data = $this->TlEvent->findAllActiveMajor();
 
 		$this->set("events", Hash::extract($data, "{n}.TlEvent"));
