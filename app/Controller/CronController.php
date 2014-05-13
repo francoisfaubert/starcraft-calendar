@@ -4,6 +4,33 @@ App::uses('HttpSocket', 'Network/Http');
 class CronController extends AppController {
 	
 	const TL_BASE_URL = "http://wiki.teamliquid.net";
+	const WCS_BASE_URL = "http://wcs.battle.net/sc2/en/schedule";
+
+
+	/**
+	 * Connect to the WCS portal to fetch the upcoming 
+ 	 * events.
+	 */
+	public function wcsdailyevents()
+	{
+		$this->layout ="text";	
+		$HttpSocket = new HttpSocket();
+		$response = $HttpSocket->get(self::WCS_BASE_URL);
+
+		if ($response->isOk()) {
+			$this->loadModel("WcsEvent");
+
+			$list = $this->WcsEvent->getEventsFromListHtml(str_replace("\n", "", $response->body));
+			if ($list) {
+				$filteredList = $this->WcsEvent->filterNew($list);			
+				if(count($filteredList) > 0) {
+					$this->WcsEvent->saveAll($filteredList);
+				}
+			}
+		}
+
+		$this->render("index");
+	}
 
 	public function premiertournamentlist()
 	{

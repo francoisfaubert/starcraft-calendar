@@ -70,7 +70,7 @@ class TlEvent extends AppModel {
 
 	public function findAllActive()
 	{
-		$result = Cache::read('active_notpassed', 'daily');
+		$result = Cache::read('active_notpassed_tl', 'daily');
         if (!$result) {
             $result = $this->find("all", array(
 				"conditions" => array(
