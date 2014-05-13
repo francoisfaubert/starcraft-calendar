@@ -19,7 +19,7 @@ class WcsEvent extends AppModel {
 	{
 		$filtered 	= array();
 		$timestamps = Hash::extract($data, "{n}.timestamp_start");
-		$existing 	= Hash::extract($this->findAllByTimestampStart($timestamps), "{n}.TlEvent.timestamp_start");
+		$existing 	= Hash::extract($this->findAllByTimestampStart($timestamps), "{n}.WcsEvent.timestamp_start");
 
 		foreach($data as $event) {
 			if(!in_array($event["timestamp_start"], $existing)) {
