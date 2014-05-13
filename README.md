@@ -9,10 +9,10 @@ Generated calendars
 WCS tournaments
 http://starcraftcalendar.francoisfaubert.com/calendar/wcs/cal.ics	
 
-Premier Stracraft 2 tournaments :
+Premier tournaments :
 http://starcraftcalendar.francoisfaubert.com/calendar/premiertournaments/cal.ics
 
-Major Stracraft 2 tournaments :
+Major tournaments :
 http://starcraftcalendar.francoisfaubert.com/calendar/majortournaments/cal.ics
 
 Links
