@@ -86,7 +86,7 @@ class CronController extends AppController {
 				$details = $this->TlEvent->getDetailsFromHtml(str_replace("\n", "", $response->body));
 				// Though we can tolerate a missing end date,
 				// we need a start date.
-				if(!is_null($details["timestamp_start"]) && $data["timestamp_start"] > 0) {
+				if (!is_null($details["timestamp_start"]) && $details["timestamp_start"] > 0) {
 					$this->TlEvent->save(array(
 						"id" => $event["TlEvent"]["id"],
 						"timestamp_start" => $details["timestamp_start"],

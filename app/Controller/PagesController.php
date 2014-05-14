@@ -84,7 +84,7 @@ class PagesController extends AppController {
 		$data = $this->TlEvent->findAllActive(5);
 		$this->set("tlevents", Hash::extract($data, "{n}.TlEvent"));
 
-		$data = $this->WcsEvent->findAllActive(5);
+		$data = $this->WcsEvent->findAllActive(8);
 		$this->set("wcsevents", Hash::extract($data, "{n}.WcsEvent"));
 
 		$this->set("title", "Team Liquid Calendar : Starcraft 2 tournaments schedule");

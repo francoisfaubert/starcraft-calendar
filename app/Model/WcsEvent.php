@@ -35,12 +35,15 @@ class WcsEvent extends AppModel {
 		$result = Cache::read('active_notpassed_wcs', 'daily');
         if (!$result) {
             $result = $this->find("all", array(
-				"order" => array("timestamp_start" => "ASC"),
-				"limit" => $limit
+            	"conditions" => array(
+					"timestamp_start >" => strtotime("yesterday"),
+				),
+				"limit" => $limit,
+				"order" => array("timestamp_start" => "ASC")
 			));
             Cache::write('active_notpassed_wcs', $result, 'daily');
         }
-        return $result;
+       	return $result;
 	}
 
 	private function _parseEventHtml($html)

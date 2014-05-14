@@ -54,7 +54,7 @@ class TlEvent extends AppModel {
 		$urls 		= Hash::extract($data, "{n}.url");
 		$existing 	= Hash::extract($this->findAllByUrl($urls), "{n}.TlEvent.url");
 
-		foreach($data as $event) {
+		foreach ($data as $event) {
 			if(!in_array($event["url"], $existing)) {
 				$filtered[] = $event;
 			}
@@ -68,7 +68,7 @@ class TlEvent extends AppModel {
 		return $this->find("all", array("conditions" => array("is_validated" => false), "limit" => $limit));
 	}
 
-	public function findAllActive()
+	public function findAllActive($limit = 20)
 	{
 		$result = Cache::read('active_notpassed_tl', 'daily');
         if (!$result) {
@@ -77,9 +77,10 @@ class TlEvent extends AppModel {
 					"or" => array(
 						"timestamp_end" => null,
 						"timestamp_end >" => time()
-						),
-					 "is_validated" => true),
-				"order" => array("timestamp_start" => "DESC")
+					),
+					"is_validated" => true),
+				"order" => array("timestamp_start" => "ASC"),
+				"limit" => $limit
 			));
             Cache::write('active_notpassed', $result, 'daily');
         }
