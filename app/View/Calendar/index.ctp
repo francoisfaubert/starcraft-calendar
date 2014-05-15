@@ -6,8 +6,7 @@ METHOD:PUBLISH
 X-WR-CALNAME: <?php echo $title . PHP_EOL; ?>
 <?php
 $dateIcal = 'Ymd\THis\Z';
-foreach($events as $event) : 
-
+foreach($eventList as $event) : 
 	$isUngoing = false;
 	$modifiedDate = $event["modified"];
 	$endDate = 0;

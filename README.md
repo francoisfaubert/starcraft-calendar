@@ -1,41 +1,36 @@
-Starcraft II Calendars
-======================
+StarCraft II Calendar
+=====================
 
-This project fetches data on Team Liquid and Battle.net and generates calendars of upcoming Starcraft II events that can be imported in Google Calendar, Outlook, iCal and other calendar applications which can read the .ics file format.
+This project fetches date information on the premier StarCraft II events and builds a calendar file that can be imported in Google Calendar, Outlook, iCal and other calendar applications which can read the <code>.ics</code> file format.
 
-Generated calendars
--------------------
+How it works
+------------
+			
+Import the following url in your favorite calendar application. Once the feed is added, it will automatically be kept up to date by your software.</p>			
 
-WCS tournaments
-http://starcraftcalendar.francoisfaubert.com/calendar/wcs/cal.ics	
+     http://starcraftcalendar.francoisfaubert.com/calendar/sc2/cal.ics
 
-Premier tournaments :
-http://starcraftcalendar.francoisfaubert.com/calendar/premiertournaments/cal.ics
 
-Major tournaments :
-http://starcraftcalendar.francoisfaubert.com/calendar/majortournaments/cal.ics
+What is listed
+--------------
 
-Links
------
+This tool crawls the schedules of every premier StarCraft 2 tournaments that are considered important on [Liquipedia](http://wiki.teamliquid.net/starcraft2/Premier_Tournaments)
 
-http://starcraftcalendar.francoisfaubert.com/
+
+* [WCS](http://wcs.battle.net/sc2/en/schedule)
+* [Dreamhack](http://open.dreamhack.se/)
+* [MLG](http://www.majorleaguegaming.com/seasons)
+* [Take TV](http://taketv.net/cups/bracket)
 
 
 Developper information
 ----------------------
 
-This website is built on CakePHP. All validated events are then stored in MySql. The database structure is packaged in the project inside the file ./dump.sql. You are expected to create and configure app/Config/database.php yourself.
+This website is built on CakePHP. All validated events are then stored in MySql. The database structure is packaged in the project inside the file ./app/Config/Schema/events.sql. You are expected to create and configure app/Config/database.php yourself.
 
-There are 4 required cron rules needed. One per calendar type, and another that updates the tournament details:
+There 1 required cron rule needed :
 
-5 8 * * 6 curl -sL starcraftcalendar.francoisfaubert.com/cron/wcsdailyevents > /dev/null 2>&1
-
-5 8 * * 6 curl -sL starcraftcalendar.francoisfaubert.com/cron/premiertournamentlist > /dev/null 2>&1
-
-5 8 * * 6 curl -sL starcraftcalendar.francoisfaubert.com/cron/majortournamentlist > /dev/null 2>&1
-
-5 */2 * * * curl -sL starcraftcalendar.francoisfaubert.com/cron/syncdetails > /dev/null 2>&1
-
+	20 4 * * * curl -sL starcraftcalendar.francoisfaubert.com/cron/daily > /dev/null 2>&1
 
 Thanks
 ------
@@ -44,4 +39,4 @@ This tool was not created by and is not directly maintained by Team Liquid or Bl
 
 I hope you will find this tool useful, your feedback is appreciated.
 
-~ @francoisfaubert
+~ [@francoisfaubert](http://www.twitter.com/francoisfaubert/)

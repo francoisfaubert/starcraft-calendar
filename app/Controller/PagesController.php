@@ -78,16 +78,15 @@ class PagesController extends AppController {
 	public function home()
 	{
 		date_default_timezone_set('UTC');
-		$this->loadModel("TlEvent");
-		$this->loadModel("WcsEvent");
 
-		$data = $this->TlEvent->findAllActive(5);
-		$this->set("tlevents", Hash::extract($data, "{n}.TlEvent"));
+		$eventList = array();
+		foreach (array("WcsEvent", "DreamhackEvent", "MlgEvent", "TaketvEvent") as $event) {
+			if($this->loadModel($event)) {
+				$eventList = array_merge($eventList, $this->{$event}->findAllActive(5));
+			}
+		}
 
-		$data = $this->WcsEvent->findAllActive(8);
-		$this->set("wcsevents", Hash::extract($data, "{n}.WcsEvent"));
-
-		$this->set("title", "Team Liquid Calendar : Starcraft 2 tournaments schedule");
-		
+		$eventList = Hash::sort($eventList, '{n}.timestamp_start', 'asc', 'numeric');
+		$this->set("eventList", array_splice($eventList, 0, 10));	
 	}
 }

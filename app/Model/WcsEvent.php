@@ -1,52 +1,10 @@
 <?php
+App::uses('RemoteEvent', 'Model');
+class WcsEvent extends RemoteEvent {
 
-class WcsEvent extends AppModel {
+	protected $_srcUrl = "http://wcs.battle.net/sc2/en/schedule";
 
-	const TYPE = "wcs";
-
-	public function getEventsFromListHtml($html)
-	{
-		$results = $this->_parseEventHtml($html);
-
-		if (count($results)) {
-			return Hash::insert($results, "{n}.type", "major");
-		}
-
-		return null;
-	}
-
-	public function filterNew($data)
-	{
-		$filtered 	= array();
-		$timestamps = Hash::extract($data, "{n}.timestamp_start");
-		$existing 	= Hash::extract($this->findAllByTimestampStart($timestamps), "{n}.WcsEvent.timestamp_start");
-
-		foreach($data as $event) {
-			if(!in_array($event["timestamp_start"], $existing)) {
-				$filtered[] = $event;
-			}
-		}
-
-		return $filtered;
-	}
-
-	public function findAllActive($limit = 20)
-	{
-		$result = Cache::read('active_notpassed_wcs', 'daily');
-        if (!$result) {
-            $result = $this->find("all", array(
-            	"conditions" => array(
-					"timestamp_start >" => strtotime("yesterday"),
-				),
-				"limit" => $limit,
-				"order" => array("timestamp_start" => "ASC")
-			));
-            Cache::write('active_notpassed_wcs', $result, 'daily');
-        }
-       	return $result;
-	}
-
-	private function _parseEventHtml($html)
+	public function getEventsFromHtml($html)
 	{
 		$thisYear = date("Y");
 		$lastmonth = strtotime("last month");
@@ -79,13 +37,12 @@ class WcsEvent extends AppModel {
 				}
 
 				$eventData[] = array(
-					"name" => $title,
-					"type" => self::TYPE,					
-					"timestamp_start" => strtotime($timeMatch[1]),
-					"is_validated" => true
+					"name" => $title,		
+					"timestamp_start" => strtotime($timeMatch[1])
 				);
 			}
 		}
+
 		return $eventData;
 	}
 }

@@ -1,10 +1,22 @@
 <?php
 
-App::uses('HttpSocket', 'Network/Http');
 class CronController extends AppController {
 	
-	const TL_BASE_URL = "http://wiki.teamliquid.net";
-	const WCS_BASE_URL = "http://wcs.battle.net/sc2/en/schedule";
+	/**
+	 * Daily cron action. Goes though a list of known events and
+	 * updates our data set.
+	 */
+	public function daily()
+	{
+		$this->layout ="text";	
+		
+		foreach (array("WcsEvent", "DreamhackEvent", "MlgEvent", "TaketvEvent") as $event) {
+			$this->loadModel($event);
+			$this->{$event}->updateData();
+		}
+
+		$this->render("index");
+	}
 
 
 	/**

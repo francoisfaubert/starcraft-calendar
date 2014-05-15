@@ -31,7 +31,11 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
+if(array_key_exists("SERVER_NAME", $_SERVER)) {
 	Configure::write('debug', strpos($_SERVER['SERVER_NAME'], "francoisfaubert.com") > 0 ? 0 : 2);
+} else {
+	Configure::write('debug', 0);
+}
 
 /**
  * Configure the Error handler used to handle errors for your application. By default
