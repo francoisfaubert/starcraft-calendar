@@ -1,5 +1,7 @@
 <?php
 
+App::uses('HttpSocket', 'Network/Http');
+
 class CronController extends AppController {
 	
 	/**
