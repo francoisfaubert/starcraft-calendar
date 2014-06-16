@@ -6,7 +6,7 @@ This project fetches date information on the premier StarCraft II events and bui
 How it works
 ------------
 			
-Import the following url in your favorite calendar application. Once the feed is added, it will automatically be kept up to date by your software.</p>			
+Import the following url in your favorite calendar application. Once the feed is added, it will automatically be kept up to date by your software.	
 
      http://starcraftcalendar.francoisfaubert.com/calendar/sc2/cal.ics
 
@@ -14,28 +14,25 @@ Import the following url in your favorite calendar application. Once the feed is
 What is listed
 --------------
 
-This tool crawls the schedules of every premier StarCraft 2 tournaments that are considered important on [Liquipedia](http://wiki.teamliquid.net/starcraft2/Premier_Tournaments)
-
-
-* [WCS](http://wcs.battle.net/sc2/en/schedule)
-* [Dreamhack](http://open.dreamhack.se/)
-* [MLG](http://www.majorleaguegaming.com/seasons)
-* [Take TV](http://taketv.net/cups/bracket)
-
+This tool crawls the list of every WCS StarCraft 2 events listed on [WCS](http://wcs.battle.net/sc2/en/schedule)
 
 Developper information
 ----------------------
 
 This website is built on CakePHP. All validated events are then stored in MySql. The database structure is packaged in the project inside the file ./app/Config/Schema/events.sql. You are expected to create and configure app/Config/database.php yourself.
 
-There 1 required cron rule needed :
+Set up the database using Cake's console utility
 
-	20 4 * * * curl -sL starcraftcalendar.francoisfaubert.com/cron/daily > /dev/null 2>&1
+	php app/Console/cake.php schema update
 
+There is one required cron rule :
+
+	0 10 * * * php /path_to_install/html/app/Console/cake.php App daily starcraftcalendar.francoisfaubert.com  > /dev/null 2>&1  
+	
 Thanks
 ------
 
-This tool was not created by and is not directly maintained by Team Liquid or Blizzard. All my thanks go to Blizzard and Team Liquid's community for their regular updates which I, in turn, pull out to generate the calendars.
+This tool was not created by and is not directly maintained by Blizzard. All my thanks go to Blizzard for their regular updates which I, in turn, pull out to generate the calendars.
 
 I hope you will find this tool useful, your feedback is appreciated.
 

@@ -16,18 +16,8 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4">			
-
 			<h2>What is listed</h2>
-
-			<p>This tool crawls the schedules of every premier StarCraft 2 tournaments that are considered important on <a href="http://wiki.teamliquid.net/starcraft2/Premier_Tournaments">Liquipedia</a>.</p>
-
-			<ul>
-				<li><a href="http://wcs.battle.net/sc2/en/schedule">WCS</a></li>
-				<li><a href="http://open.dreamhack.se/">Dreamhack</a></li>
-				<li><a href="http://www.majorleaguegaming.com/seasons">MLG</a></li>
-				<li><a href="http://taketv.net/cups/bracket">Take TV</a></li>
-			</ul>
-
+			<p>This tool crawls the list of every WCS StarCraft 2 events listed on <a href="http://wcs.battle.net">wcs.battle.net</a>.</p>
 		</div>
 		<div class="col-md-8">
 			<h2>Overview</h2>
@@ -65,7 +55,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<h3>Thanks</h3>
-			<p>This tool was not created by and is not directly maintained by Team Liquid or Blizzard. All my thanks go to Blizzard and Team Liquid's community for their regular updates which I, in turn, pull out to generate the calendars.</p>
+			<p>This tool was not created by and is not directly maintained by Blizzard. All my thanks go to Blizzard for their regular updates which I, in turn, pull out to generate the calendars.</p>
 			<p>I hope you will find this tool useful. Your feedback is appreciated.</p>
 			<p>~ <a href="http://www.twitter.com/francoisfaubert/">@francoisfaubert</a></p>
 		</div>
