@@ -25,6 +25,15 @@
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File'));
 
+
+// Allows CLI access
+if(!isset($_SERVER['SERVER_NAME']))
+{
+	//$_SERVER['SERVER_NAME'] = "tlcalendar.nvi";
+	$_SERVER['SERVER_NAME'] = $_SERVER['argv'][count($_SERVER['argv'])-1];
+}
+
+
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
  *

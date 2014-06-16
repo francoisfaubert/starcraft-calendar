@@ -27,4 +27,14 @@ App::uses('Shell', 'Console');
  */
 class AppShell extends Shell {
 
+	public $tasks = array(
+		"UpdateEvents"
+	);
+
+	// /Applications/MAMP/bin/php/php5.4.10/bin/php app/Console/cake.php App daily starcraftcalendar.francoisfaubert.com
+	// php app/Console/cake.php App daily tlcalendar.nvi
+	public function daily()
+	{
+		$this->UpdateEvents->execute();
+	}
 }
