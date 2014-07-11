@@ -6,43 +6,35 @@ class WcsEvent extends RemoteEvent {
 
 	public function getEventsFromHtml($html)
 	{
-		$thisYear = date("Y");
-		$lastmonth = strtotime("last month");
-		$eventData = array();
-		
-		preg_match_all('/<div class=\'rhs\'>(.+?<\/div>)<\/div>/', $html, $eventMatches);
-		if (count($eventMatches) > 1) {
-			foreach ($eventMatches[1] as $row) {				
-				// Get the timestamp of the event from the time tag
-				preg_match('/<time.+?datetime=\'(.+?)\'/', $row, $timeMatch);
+		$dom = new DOMDocument();
+		if (@$dom->loadHTML($html)) {
 
-				// Get the title and competitor names
-				preg_match('/<div class=\'title\'>(.+?)<\/div>/', $row, $titleMatch);
-				preg_match('/<ul>(.+?)<\/ul>/', $row, $competitorsMatch);
+			$finder = new DomXPath($dom);
+			$eventContainers = $finder->query('//*[@class="rhs"]');
 
-				$title = $titleMatch[1];
-				if (count($competitorsMatch) > 1 && trim($competitorsMatch[1]) != "TBD") {
-					preg_match_all('/<li>(.+?)<\/li>/', $competitorsMatch[1], $liMatches);
-
-					if (count($liMatches) > 0) {
-						$playerNames = array();		
-						foreach ($liMatches[1] as $li) {
-							$name = trim(strip_tags($li));
-							$playerNames[] = $name;
-						}
-						if (count($playerNames) > 0) {
-							$title .=  " (" . implode(", ", $playerNames) . ")";
-						}
+			foreach ($eventContainers as $eventNode) {
+				$title = $eventNode->getElementsByTagName("div")->item(0)->nodeValue;
+				$time = $eventNode->getElementsByTagName("time")->item(0)->getAttribute("datetime");			
+				$playersNodes = $eventNode->getElementsByTagName("li");
+				
+				if(count($playersNodes) > 1) {
+					$title .= " (";
+					foreach($playersNodes as $node) {
+						$title .= $node->item(0)->nodeValue . " ";
 					}
+					$title .= ")";
 				}
-
+			
 				$eventData[] = array(
-					"name" => $title,		
-					"timestamp_start" => strtotime($timeMatch[1])
+					"name" 				=> $title,
+					"timestamp_start" => strtotime($time)
 				);
+				
 			}
 		}
 
 		return $eventData;
 	}
+
+
 }
