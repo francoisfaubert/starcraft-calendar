@@ -396,10 +396,22 @@ Cache::config('daily', array(
 ));
 */
 
-Cache::config('default', array(
+Cache::config('_cake_model_', array(
     'engine' => 'MemcachedEngine',
     'prefix' => Inflector::slug(APP_DIR) . '_',
-    'duration' => '+7 days',
+    'duration' => '+999 days',
+    'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
+    'compress' => false,
+    'persistent' => 'memcachier',
+    'login' => getenv('MEMCACHIER_USERNAME'),
+    'password' => getenv('MEMCACHIER_PASSWORD'),
+    'serialize' => 'php'
+));
+
+Cache::config('_cake_core_', array(
+    'engine' => 'MemcachedEngine',
+    'prefix' => Inflector::slug(APP_DIR) . '_',
+    'duration' => '+999 days',
     'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
     'compress' => false,
     'persistent' => 'memcachier',
