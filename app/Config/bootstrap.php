@@ -23,20 +23,7 @@
  */
 
 // Setup a 'default' cache configuration for use in the application.
-
-if(class_exists('Memcache',false)) {
-	Cache::config('default', array(
-	    'engine' => 'Memcache',
-	    'prefix' => Inflector::slug(APP_DIR) . '_',
-	    'duration' => '+999 days',
-	    'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
-	    'compress' => false,
-	    'persistent' => 'memcachier',
-	    'login' => getenv('MEMCACHIER_USERNAME'),
-	    'password' => getenv('MEMCACHIER_PASSWORD'),
-	    'serialize' => 'php'
-	));
-}
+Cache::config('default' , array('engine' => 'File'));
 
 
 // Allows CLI access
