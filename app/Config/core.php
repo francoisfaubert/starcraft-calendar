@@ -343,7 +343,7 @@ if(array_key_exists("SERVER_NAME", $_SERVER)) {
  *	));
  */
 
-/**
+/* *
  * Configure the cache handlers that CakePHP will use for internal
  * metadata like class maps, and model schema.
  *
@@ -352,7 +352,7 @@ if(array_key_exists("SERVER_NAME", $_SERVER)) {
  * Note: 'default' and other application caches should be configured in app/Config/bootstrap.php.
  *       Please check the comments in bootstrap.php for more info on the cache engines available
  *       and their settings.
- */
+ * /
 $engine = 'File';
 
 // In development mode, caches should expire quickly.
@@ -364,10 +364,10 @@ if (Configure::read('debug') > 0) {
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
 $prefix = 'tlcalendar_';
 
-/**
+/* *
  * Configure the cache used for general framework caching. Path information,
  * object listings, and translation cache files are stored with this configuration.
- */
+ * /
 Cache::config('_cake_core_', array(
 	'engine' => $engine,
 	'prefix' => $prefix . 'cake_core_',
@@ -376,10 +376,10 @@ Cache::config('_cake_core_', array(
 	'duration' => $duration
 ));
 
-/**
+/* *
  * Configure the cache for model and datasource caches. This cache configuration
  * is used to store schema descriptions, and table listings in connections.
- */
+ * /
 Cache::config('_cake_model_', array(
 	'engine' => $engine,
 	'prefix' => $prefix . 'cake_model_',
@@ -393,4 +393,29 @@ Cache::config('daily', array(
     'duration' => '+1 day',
     'probability' => 100,
     'path' => CACHE . 'daily' . DS,
+));
+*/
+
+Cache::config('default', array(
+    'engine' => 'Memcached',
+    'prefix' => 'sccal_',
+    'duration' => '+7 days',
+    'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
+    'compress' => false,
+    'persistent' => 'memcachier',
+    'login' => getenv('MEMCACHIER_USERNAME'),
+    'password' => getenv('MEMCACHIER_PASSWORD'),
+    'serialize' => 'php'
+));
+
+Cache::config('daily', array(
+    'engine' => 'Memcached',
+    'prefix' => 'sccal_',
+    'duration' => '+1 days',
+    'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
+    'compress' => false,
+    'persistent' => 'memcachier',
+    'login' => getenv('MEMCACHIER_USERNAME'),
+    'password' => getenv('MEMCACHIER_PASSWORD'),
+    'serialize' => 'php'
 ));
