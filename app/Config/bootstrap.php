@@ -26,7 +26,7 @@
 
 if(class_exists('Memcache',false)) {
 	Cache::config('default', array(
-	    'engine' => 'MemcachedEngine',
+	    'engine' => 'Memcache',
 	    'prefix' => Inflector::slug(APP_DIR) . '_',
 	    'duration' => '+999 days',
 	    'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
