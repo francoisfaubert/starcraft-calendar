@@ -394,7 +394,6 @@ Cache::config('daily', array(
     'probability' => 100,
     'path' => CACHE . 'daily' . DS,
 ));
-*/
 
 Cache::config('_cake_model_', array(
     'engine' => 'MemcachedEngine',
@@ -407,18 +406,7 @@ Cache::config('_cake_model_', array(
     'password' => getenv('MEMCACHIER_PASSWORD'),
     'serialize' => 'php'
 ));
-
-Cache::config('_cake_core_', array(
-    'engine' => 'MemcachedEngine',
-    'prefix' => Inflector::slug(APP_DIR) . '_',
-    'duration' => '+999 days',
-    'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
-    'compress' => false,
-    'persistent' => 'memcachier',
-    'login' => getenv('MEMCACHIER_USERNAME'),
-    'password' => getenv('MEMCACHIER_PASSWORD'),
-    'serialize' => 'php'
-));
+*/
 
 Cache::config('daily', array(
     'engine' => 'MemcachedEngine',
