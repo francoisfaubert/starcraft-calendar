@@ -397,7 +397,7 @@ Cache::config('daily', array(
 */
 
 Cache::config('default', array(
-    'engine' => 'Memcached',
+    'engine' => 'Memcache',
     'prefix' => 'sccal_',
     'duration' => '+7 days',
     'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
@@ -409,7 +409,7 @@ Cache::config('default', array(
 ));
 
 Cache::config('daily', array(
-    'engine' => 'Memcached',
+    'engine' => 'Memcache',
     'prefix' => 'sccal_',
     'duration' => '+1 days',
     'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),

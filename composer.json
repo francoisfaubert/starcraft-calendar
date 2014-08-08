@@ -1,18 +1,6 @@
 {
     "name": "francoisfaubert/starcraft-calendar",
     "description": "StarCraft II Calendar",
-    "keywords": ["StarCraft"],
-    "homepage": "http://starcraftcalendar.francoisfaubert.com",
-    "authors": [
-        {
-            "name": "Francois Faubert",
-            "homepage": "http://francoisfaubert.com",
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/francoisfaubert/starcraft-calendar/issues",
-        "source": "https://github.com/francoisfaubert/starcraft-calendar"
-    },
     "require": {
         "php": ">=5.2.8"
     },
