@@ -407,15 +407,16 @@ Cache::config('_cake_model_', array(
     'serialize' => 'php'
 ));
 */
-
-Cache::config('daily', array(
-    'engine' => 'MemcachedEngine',
-    'prefix' => Inflector::slug(APP_DIR) . '_',
-    'duration' => '+1 days',
-    'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
-    'compress' => false,
-    'persistent' => 'memcachier',
-    'login' => getenv('MEMCACHIER_USERNAME'),
-    'password' => getenv('MEMCACHIER_PASSWORD'),
-    'serialize' => 'php'
-));
+if(class_exists('Memcache',false)) {
+	Cache::config('daily', array(
+	    'engine' => 'MemcachedEngine',
+	    'prefix' => Inflector::slug(APP_DIR) . '_',
+	    'duration' => '+1 days',
+	    'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
+	    'compress' => false,
+	    'persistent' => 'memcachier',
+	    'login' => getenv('MEMCACHIER_USERNAME'),
+	    'password' => getenv('MEMCACHIER_PASSWORD'),
+	    'serialize' => 'php'
+	));
+}
