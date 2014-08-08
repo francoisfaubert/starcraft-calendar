@@ -118,7 +118,7 @@ class MootoolsEngineHelper extends JsBaseEngineHelper {
  * Create javascript selector for a CSS rule
  *
  * @param string $selector The selector that is targeted
- * @return MootoolsEngineHelper instance of $this. Allows chained methods.
+ * @return $this
  */
 	public function get($selector) {
 		$this->_multipleSelection = false;
@@ -230,8 +230,8 @@ class MootoolsEngineHelper extends JsBaseEngineHelper {
  * Requires `Request`. If you wish to use 'update' key you must have ```Request.HTML```
  * if you wish to do Json requests you will need ```JSON``` and ```Request.JSON```.
  *
- * @param string|array $url
- * @param array $options
+ * @param string|array $url URL
+ * @param array $options Options list.
  * @return string The completed ajax call.
  */
 	public function request($url, $options = array()) {

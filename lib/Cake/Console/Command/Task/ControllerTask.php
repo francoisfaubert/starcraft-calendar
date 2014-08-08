@@ -188,6 +188,7 @@ class ControllerTask extends BakeTask {
 				if (strtolower($wannaUseSession) === 'y') {
 					array_push($components, 'Session');
 				}
+				array_unique($components);
 			}
 		} else {
 			list($wannaBakeCrud, $wannaBakeAdminCrud) = $this->_askAboutMethods();
@@ -224,10 +225,10 @@ class ControllerTask extends BakeTask {
 /**
  * Confirm a to be baked controller with the user
  *
- * @param string $controllerName
- * @param string $useDynamicScaffold
- * @param array $helpers
- * @param array $components
+ * @param string $controllerName The name of the controller.
+ * @param string $useDynamicScaffold Whether or not to use dynamic scaffolds.
+ * @param array $helpers The list of helpers to include.
+ * @param array $components The list of components to include.
  * @return void
  */
 	public function confirmController($controllerName, $useDynamicScaffold, $helpers, $components) {
@@ -285,7 +286,7 @@ class ControllerTask extends BakeTask {
  *
  * @param string $controllerName Controller name
  * @param string $admin Admin route to use
- * @param boolean $wannaUseSession Set to true to use sessions, false otherwise
+ * @param bool $wannaUseSession Set to true to use sessions, false otherwise
  * @return string Baked actions
  */
 	public function bakeActions($controllerName, $admin = null, $wannaUseSession = true) {

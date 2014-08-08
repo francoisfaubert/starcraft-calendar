@@ -104,7 +104,7 @@ class SmtpTransport extends AbstractTransport {
 /**
  * Set the configuration
  *
- * @param array $config
+ * @param array $config Configuration options.
  * @return array Returns configs
  */
 	public function config($config = null) {
@@ -127,7 +127,7 @@ class SmtpTransport extends AbstractTransport {
 /**
  * Parses and stores the reponse lines in `'code' => 'message'` format.
  *
- * @param array $responseLines
+ * @param array $responseLines Response lines to parse.
  * @return void
  */
 	protected function _bufferResponseLines(array $responseLines) {
@@ -336,7 +336,7 @@ class SmtpTransport extends AbstractTransport {
  * Protected method for sending data to SMTP connection
  *
  * @param string $data data to be sent to SMTP server
- * @param string|boolean $checkCode code to check for in server response, false to skip
+ * @param string|bool $checkCode code to check for in server response, false to skip
  * @return void
  * @throws SocketException
  */
