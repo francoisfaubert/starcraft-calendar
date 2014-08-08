@@ -397,8 +397,8 @@ Cache::config('daily', array(
 */
 
 Cache::config('default', array(
-    'engine' => 'Memcache',
-    'prefix' => 'sccal_',
+    'engine' => 'Memcached',
+    'prefix' => Inflector::slug(APP_DIR) . '_',
     'duration' => '+7 days',
     'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
     'compress' => false,
@@ -409,8 +409,8 @@ Cache::config('default', array(
 ));
 
 Cache::config('daily', array(
-    'engine' => 'Memcache',
-    'prefix' => 'sccal_',
+    'engine' => 'Memcached',
+    'prefix' => Inflector::slug(APP_DIR) . '_',
     'duration' => '+1 days',
     'servers' => explode(',', getenv('MEMCACHIER_SERVERS')),
     'compress' => false,
