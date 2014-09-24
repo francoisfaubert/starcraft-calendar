@@ -351,6 +351,9 @@ class Mysql extends DboSource {
 			if (in_array($fields[$column->Field]['type'], $this->fieldParameters['unsigned']['types'], true)) {
 				$fields[$column->Field]['unsigned'] = $this->_unsigned($column->Type);
 			}
+			if ($fields[$column->Field]['type'] === 'timestamp' && strtoupper($column->Default) === 'CURRENT_TIMESTAMP') {
+				$fields[$column->Field]['default'] = '';
+			}
 			if (!empty($column->Key) && isset($this->index[$column->Key])) {
 				$fields[$column->Field]['key'] = $this->index[$column->Key];
 			}
@@ -696,7 +699,7 @@ class Mysql extends DboSource {
 	}
 
 /**
- * Returns an detailed array of sources (tables) in the database.
+ * Returns a detailed array of sources (tables) in the database.
  *
  * @param string $name Table name to get parameters
  * @return array Array of table names in the database
