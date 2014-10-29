@@ -1,3 +1,7 @@
+.DS_Store
+._.DS_Store
 .editorconfig
 app/Config/database.php
-app/tmp/
+app/tmp/cache/assets/development
+tmp/data/meta_request/*.json
+log/development.log

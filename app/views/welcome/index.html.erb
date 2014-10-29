@@ -1,0 +1,82 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1>StarCraft II Calendar</h1>
+        <p class="lead">This project fetches date information on the premier StarCraft II events and builds a calendar file that can be imported in Google Calendar, Outlook, iCal and other calendar applications which can read the <code>.ics</code> file format.</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>How it works</h2>
+            <p>Import the following url in your favorite calendar application. Once the feed is added, it will automatically be kept up to date by your software.</p>
+            <p><code>http://starcraftcalendar.francoisfaubert.com/calendar/sc2/cal.ics</code></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>What is listed</h2>
+            <p>This tool crawls the list of every WCS StarCraft 2 events listed on <a href="http://wcs.battle.net">wcs.battle.net</a>.</p>
+        </div>
+        <div class="col-md-8">
+            <h2>Overview</h2>
+            <table class="table table-striped">
+                <thead>
+                    <th>Name</th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                </thead>
+                <tbody>
+                <% if @events.length > 0 %>
+                    <% @events.each do |event| %>
+                        <tr class="<%= event.passed? ? "muted" : "" %><%= event.today? ? "highlighted" : "" %>">
+                            <td><%= event.name; %></td>
+                            <td>
+                                <time datetime="<%= event.start_date_utc; %>" data-title="true" title="<%= event.start_date; %>">
+                                    <%= event.start_date; %>
+                                </time>
+                            </td>
+                            <td>
+                                <% if event.has_end_date? %>
+                                    <time datetime="<%= event.end_date_utc; %>" data-title="true" title="<%= event.end_date; %>">
+                                        <%= event.end_date; %>
+                                    </time>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                <% else %>
+                    <tr>
+                        <td colspan="3">
+                            There are currently no events planned.
+                        </td>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Thanks</h3>
+            <p>This tool was not created by and is not directly maintained by Blizzard. All my thanks go to Blizzard for their regular updates which I, in turn, pull out to generate the calendars.</p>
+            <p>I hope you will find this tool useful. Your feedback is appreciated.</p>
+            <p>~ <a href="https://www.twitter.com/francoisfaubert/">@francoisfaubert</a></p>
+        </div>
+        <div class="col-md-6">
+            <h3>Fork me</h3>
+            <p>There have been other people who have coded similar calendars along the way. Many of the previous projects have stopped being maintained along the way, which is the way of things I guess. I have published the code for this website on GitHub in case I can no longer maintain the website and someone else wants to have a starting point to bring the calendars back online.</p>
+            <ul>
+                <li><a href="https://github.com/francoisfaubert/starcraft-calendar">Visit on GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer class="jumbotron" style="font-size:2.5em; text-align:center; margin-bottom:0; margin-top:2em;">
+    <i class="glyphicon glyphicon-calendar"></i>
+</footer>
+
+<a href="https://github.com/francoisfaubert/starcraft-calendar"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
