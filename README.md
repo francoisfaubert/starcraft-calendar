@@ -5,8 +5,8 @@ This project fetches date information on the premier StarCraft II events and bui
 
 How it works
 ------------
-			
-Import the following url in your favorite calendar application. Once the feed is added, it will automatically be kept up to date by your software.	
+
+Import the following url in your favorite calendar application. Once the feed is added, it will automatically be kept up to date by your software.
 
      http://starcraftcalendar.francoisfaubert.com/calendar/sc2/cal.ics
 
@@ -19,16 +19,19 @@ This tool crawls the list of every WCS StarCraft 2 events listed on [WCS](http:/
 Developper information
 ----------------------
 
-This website is built on CakePHP. All validated events are then stored in MySql. The database structure is packaged in the project inside the file ./app/Config/Schema/events.sql. You are expected to create and configure app/Config/database.php yourself.
+This website is built on Ruby on Rails.
 
 Set up the database using Cake's console utility
+
+    bundle install
+    rake db:migrate
 
 	php app/Console/cake.php schema update
 
 There is one required cron rule :
 
-	0 10 * * * php /path_to_install/html/app/Console/cake.php App daily starcraftcalendar.francoisfaubert.com  > /dev/null 2>&1  
-	
+	0 10 * * * php /path_to_install/html/app/Console/cake.php App daily starcraftcalendar.francoisfaubert.com  > /dev/null 2>&1
+
 Thanks
 ------
 

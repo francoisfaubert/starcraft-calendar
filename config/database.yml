@@ -9,6 +9,8 @@ default: &default
   pool: 5
   timeout: 5000
 
+posgres : postgresql
+
 development:
   <<: *default
   database: db/development.sqlite3
@@ -21,5 +23,11 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+    <% data = URI.parse ENV['HEROKU_POSTGRESQL_PURPLE_URL'] %>
+    adapter: postgresql
+    encoding: unicode
+    database: <%= data.path.sub(%r{^/},"") %>
+    pool: 5
+    username: <%= data.user %>
+    password: <%= data.password %>
+    host:     <%= data.host %>
