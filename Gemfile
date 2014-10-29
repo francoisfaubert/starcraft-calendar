@@ -42,13 +42,10 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'hpricot', github: 'whymirror/hpricot'
 
-group :production do
-  gem "pg"
-end
+gem "pg", group: :development
+gem 'rails_12factor', group: :production
 
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
-  gem 'sqlite3'
-end
+gem 'better_errors', group: :development
+gem 'binding_of_caller', group: :development
+gem 'meta_request', group: :development
+gem 'sqlite3', group: :development
