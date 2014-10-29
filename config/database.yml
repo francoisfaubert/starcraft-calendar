@@ -14,11 +14,12 @@ test:
   database: db/test.sqlite3
 
 production:
-    <% data = URI.parse ENV['HEROKU_POSTGRESQL_PURPLE_URL'] %>
-    adapter: postgresql
+    <% uri = URI.parse(ENV['HEROKU_POSTGRESQL_PURPLE_URL']) %>
+    adapter: <%= uri.scheme == "postgres" ? "postgresql" : uri.scheme %>
     encoding: unicode
-    database: <%= data.path.sub(%r{^/},"") %>
+    database: <%= (uri.path || "").split("/")[1] %>
     pool: 5
-    username: <%= data.user %>
-    password: <%= data.password %>
-    host:     <%= data.host %>
+    username: <%= uri.user %>
+    password: <%= uri.password %>
+    host:     <%= uri.host %>
+    port:     <%= uri.port %>
