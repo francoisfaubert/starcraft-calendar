@@ -9,8 +9,6 @@ default: &default
   pool: 5
   timeout: 5000
 
-posgres : postgresql
-
 development:
   <<: *default
   database: db/development.sqlite3
