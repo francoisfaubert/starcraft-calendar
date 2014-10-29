@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>StarcraftCalendar</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title>StarCraft II Calendar</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link rel="canonical" href="http://starcraftcalendar.francoisfaubert.com/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" value="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" value="origin" />
+    <meta name="keywords" content="Starcraft II, calendar, ical, google calendar, wcs, starcraft" />
+    <meta name="description" content="We fetch the premier StarCraft II events and build a calendar file that can be imported in Google Calendar, Outlook, iCal and other calendar applications which can read the .ics file format." />
+    <meta name="og:url" description="http://starcraftcalendar.francoisfaubert.com/" />
+    <meta name="og:site_name" description="StarCraft II Calendar" />
+    <meta name="og:type" description="website" />
+    <meta name="og:locale" description="en_CA" />
+    <meta name="og:description" description="We fetch the premier StarCraft II events and build a calendar file that can be imported in Google Calendar, Outlook, iCal and other calendar applications which can read the .ics file format." />
+    <meta name="twitter:card" description="summary" />
+    <meta name="twitter:description" description="We fetch the premier StarCraft II events and build a calendar file that can be imported in Google Calendar, Outlook, iCal and other calendar applications which can read the .ics file format." />
 </head>
 <body>
-
 <%= yield %>
-
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

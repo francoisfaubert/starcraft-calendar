@@ -26,7 +26,11 @@ Set up the database using Cake's console utility
     bundle install
     rake db:migrate
 
-	php app/Console/cake.php schema update
+
+Or once on heroku
+
+    heroku run rake db:migrate
+
 
 There is one required cron rule :
 
