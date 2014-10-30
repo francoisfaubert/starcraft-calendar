@@ -36,6 +36,22 @@ class Wcs < ActiveRecord::Base
         end
     end
 
+    def start_date_ical
+        self.start_time
+    end
+
+    def end_date_ical
+        self.end_time
+    end
+
+    def created_at_ical
+        self.created_at
+    end
+
+    def modified_at_ical
+        self.modified_at
+    end
+
     def start_date_utc
         self.start_time.utc.iso8601
     end

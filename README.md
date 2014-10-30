@@ -19,22 +19,21 @@ This tool crawls the list of every WCS StarCraft 2 events listed on [WCS](http:/
 Developper information
 ----------------------
 
-This website is built on Ruby on Rails.
+This website is built on Ruby on Rails 4.
 
-Set up the database using Cake's console utility
+Set up the requirements using the bundler and the database using the migration tool.
 
-    bundle install
-    rake db:migrate
+    $ bundle install
+    $ rake db:migrate
+
+Or, should you throw this repository on Heroku run the following command after it has been deployed for the first time.
+
+    $ heroku run rake db:migrate
 
 
-Or once on heroku
+There is one required daily cron command to ensure new events are fetched :
 
-    heroku run rake db:migrate
-
-
-There is one required cron rule :
-
-	0 10 * * * php /path_to_install/html/app/Console/cake.php App daily starcraftcalendar.francoisfaubert.com  > /dev/null 2>&1
+	$ rake cron
 
 Thanks
 ------
