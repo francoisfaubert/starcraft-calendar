@@ -23,7 +23,7 @@ class Calendar
             str << 'END:VEVENT'
         end
         str << 'END:VCALENDAR'
-        str.join("\r\name")
+        str.join("\r\n")
     end
 
 end
