@@ -3,8 +3,8 @@ class Calendar
     def self.generate(events)
         str = []
         str << 'BEGIN:VCALENDAR'
-        str << 'PRODID:-//tlcalendar v0.1//NONSGML iCal Writer//EN'
         str << 'VERSION:2.0'
+        str << 'PRODID:-//tlcalendar v0.1//NONSGML iCal Writer//EN'
         str << 'CALSCALE:GREGORIAN'
         str << 'METHOD:PUBLISH'
         str << 'X-WR-CALNAME: StarCraft II Calendar'
@@ -23,7 +23,7 @@ class Calendar
             str << 'END:VEVENT'
         end
         str << 'END:VCALENDAR'
-        str.join("\n")
+        str.join("\r\name")
     end
 
 end
