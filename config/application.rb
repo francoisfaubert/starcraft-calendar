@@ -3,6 +3,7 @@
 
 require File.expand_path('../boot', __FILE__)
 
+require "active_record/railtie"
 require 'rails/all'
 
 if defined?(Bundler)
@@ -19,7 +20,7 @@ class Rails::Application::Configuration
     # There is no config file, so manufacture one
     config = {
       'test' => 'sqlite3://localhost/:memory:',
-      'development' => ENV['DATABASE_URL'],
+      #'development' => ENV['DATABASE_URL'],
       'production' => ENV['DATABASE_URL']
     }
     config.each do |key, value|
@@ -30,6 +31,13 @@ class Rails::Application::Configuration
         config[key] = env_config
       end
     end
+
+    config['development'] = {
+      'adapter' => 'sqlite3',
+      'database' => 'db/development.sqlite3',
+      'pool' => 5,
+      'timeout' => 5000
+    }
 
     config
   end
