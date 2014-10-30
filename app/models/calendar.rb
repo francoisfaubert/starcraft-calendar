@@ -9,11 +9,10 @@ class Calendar
         str << 'METHOD:PUBLISH'
         str << 'X-WR-CALNAME: StarCraft II Calendar'
         events.each do |event|
-            str << 'VERSION:1'
             str << 'BEGIN:VEVENT'
             str << 'STATUS:CONFIRMED'
             str << 'TZNAME:GMT'
-            str << 'SUMMARY:' + event.name.gsub(/,/, "\,")
+            str << 'SUMMARY:' + event.name.gsub(/,/, "\\,")
             str << 'UID:' + event.id.to_s + '@starcraftcalendar.francoisfaubert.com'
             str << 'DTSTART:' + event.start_date_ical.to_s
             if event.has_end_date?
