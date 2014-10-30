@@ -1,5 +1,8 @@
 class Wcs < ActiveRecord::Base
 
+    ICAL_FORMAT = "%Y%m%dT%H%M%SZ"
+
+
     def self.fetchRemoteList
         list = []
         RemoteEvent.getPageByURL(@remoteUrl).search("*.rhs").each do |row|
@@ -37,19 +40,19 @@ class Wcs < ActiveRecord::Base
     end
 
     def start_date_ical
-        self.start_time.strftime("%Y%m%dT%H%M%S")
+        self.start_time.strftime(ICAL_FORMAT)
     end
 
     def end_date_ical
-        self.end_time.strftime("%Y%m%dT%H%M%S")
+        self.end_time.strftime(ICAL_FORMAT)
     end
 
     def created_at_ical
-        self.created_at.strftime("%Y%m%dT%H%M%S")
+        self.created_at.strftime(ICAL_FORMAT)
     end
 
     def updated_at_ical
-        self.updated_at.strftime("%Y%m%dT%H%M%S")
+        self.updated_at.strftime(ICAL_FORMAT)
     end
 
     def start_date_utc
