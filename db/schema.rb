@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029174341) do
+ActiveRecord::Schema.define(version: 20141030171358) do
 
   create_table "wcs", force: true do |t|
     t.string   "name"
     t.string   "start"
     t.datetime "created_at"
-    t.string   "modified_at"
     t.datetime "updated_at"
     t.time     "end"
   end

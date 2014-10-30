@@ -6,3 +6,4 @@ app/tmp/cache/assets/development
 tmp/data/meta_request/*.json
 log/development.log
 db/development.sqlite3
+tmp/cache/assets/development

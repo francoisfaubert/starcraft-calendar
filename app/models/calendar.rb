@@ -18,7 +18,7 @@ class Calendar
             if event.has_end_date?
                 str << 'DTEND:' + event.end_date_ical.to_s
             end
-            str << 'LAST-MODIFIED:' + event.modified_at_ical.to_s
+            str << 'LAST-MODIFIED:' + event.updated_at_ical.to_s
             str << 'CREATED:' + event.created_at_ical.to_s
             str << 'END:VEVENT'
         end

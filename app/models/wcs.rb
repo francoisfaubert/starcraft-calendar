@@ -37,19 +37,19 @@ class Wcs < ActiveRecord::Base
     end
 
     def start_date_ical
-        self.start_time
+        self.start_time.strftime("%Y%m%dT%H%M%S")
     end
 
     def end_date_ical
-        self.end_time
+        self.end_time.strftime("%Y%m%dT%H%M%S")
     end
 
     def created_at_ical
-        self.created_at
+        self.created_at.strftime("%Y%m%dT%H%M%S")
     end
 
-    def modified_at_ical
-        self.modified_at
+    def updated_at_ical
+        self.updated_at.strftime("%Y%m%dT%H%M%S")
     end
 
     def start_date_utc
