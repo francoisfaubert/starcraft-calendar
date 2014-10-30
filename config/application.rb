@@ -1,3 +1,6 @@
+# Thank you to https://github.com/uq-eresearch/miletus/blob/master/config/application.rb for this sample file
+
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
