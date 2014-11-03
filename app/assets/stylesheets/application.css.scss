@@ -8,3 +8,33 @@
 .highlighted td {
     font-weight:bold;
 }
+
+
+
+.serie {
+    background-color: #fefefe;
+    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #fff;
+    font-size: 25px;
+    padding: 1em;
+    text-align:center;
+
+    .vs {
+        color: #333;
+        font-size: 15px;
+    }
+
+    .score-box {
+        font-size: 35px;
+    }
+
+    .name {
+        font-size: 18px;
+        color:#dedede;
+    }
+
+}
+
+.serie:nth-child(odd) {
+    background-color: #efefef;
+}
