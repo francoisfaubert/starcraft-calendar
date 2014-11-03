@@ -12,3 +12,4 @@ db/development.sqlite3
 .bundle/
 :db
 tmp/pids/
+tmp/cache/assets/development/sprockets/

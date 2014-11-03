@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'mobile/schedule'
+  get 'mobile/scores'
+
   #get '/calendar/sc2/:file_name', to: 'calendar#sc2', as: 'sc2'
   get '/calendar/sc2/cal.ics', to: 'calendar#sc2'
   get 'welcome/index'

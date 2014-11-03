@@ -1,0 +1,21 @@
+<%= render "mobile/menu" %>
+
+<% if @events.length > 0 %>
+    <% @events.each do |event| %>
+        <div class="<%= event.passed? ? "muted" : "" %><%= event.today? ? "highlighted" : "" %>">
+            <h2><%= event.name; %></h2>
+
+            <time datetime="<%= event.start_date_utc; %>" data-title="true" title="<%= event.start_date; %>">
+                <%= event.start_date; %>
+            </time>
+
+            <% if event.has_end_date? %>
+                <time class="end-date" datetime="<%= event.end_date_utc; %>" data-title="true" title="<%= event.end_date; %>">
+                    <%= event.end_date; %>
+                </time>
+            <% end %>
+        </div>
+    <% end %>
+<% else %>
+    <p>There are currently no events planned.</p>
+<% end %>

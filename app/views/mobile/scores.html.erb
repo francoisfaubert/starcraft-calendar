@@ -1,0 +1,25 @@
+<%= render "mobile/menu" %>
+
+<% if @series.length > 0 %>
+    <% @series.each do |serie| %>
+        <div class="<%= serie.passed? ? "muted" : "" %><%= serie.today? ? "highlighted" : "" %>">
+
+            <div class="players">
+                <div class="player1"><%= serie.player1 %></div>
+                <div class="vs">vs</div>
+                <div class="player2"><%= serie.player2 %></div>
+            </div>
+            <div class="score-box">
+                <div class="player1"><%= serie.player1_score %></div>
+                <div class="player2"><%= serie.player2_score %></div>
+            </div>
+
+            <h3><%= serie.name; %></h3>
+            <time datetime="<%= serie.start_date_utc; %>" data-title="true" title="<%= serie.start_date; %>">
+                <%= serie.start_date; %>
+            </time>
+        </div>
+    <% end %>
+<% else %>
+    <p>There are currently no series played.</p>
+<% end %>

@@ -1,4 +1,4 @@
-class RemoteEvent
+class Remote
 
     require 'open-uri'
     require 'hpricot'
