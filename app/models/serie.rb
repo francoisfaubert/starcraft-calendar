@@ -1,5 +1,7 @@
 class Serie < ActiveRecord::Base
 
+    ICAL_FORMAT = "%Y%m%dT%H%M%SZ"
+
     protected
 
         @remoteUrl = "http://wcs.battle.net/sc2/en/brackets"
@@ -36,6 +38,10 @@ class Serie < ActiveRecord::Base
             list
         end
 
+        def summary
+            self.player1 + " (" + self.player1_score.to_s + ") vs " + self.player2 + " (" + self.player2_score.to_s + ")"
+        end
+
         def start_time
             Time.parse(self.start)
         end
@@ -50,6 +56,22 @@ class Serie < ActiveRecord::Base
 
         def start_date_utc
             self.start_time.utc.iso8601
+        end
+
+        def start_date_ical
+            self.start_time.strftime(ICAL_FORMAT)
+        end
+
+        def end_date_ical
+            self.end_time.strftime(ICAL_FORMAT)
+        end
+
+        def created_at_ical
+            self.created_at.strftime(ICAL_FORMAT)
+        end
+
+        def updated_at_ical
+            self.updated_at.strftime(ICAL_FORMAT)
         end
 
         def passed?

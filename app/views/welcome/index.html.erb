@@ -1,7 +1,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1>StarCraft II Calendar</h1>
-        <p class="lead">This project fetches date information on the premier StarCraft II events and builds a calendar file that can be imported in Google Calendar, Outlook, iCal and other calendar applications which can read the <code>.ics</code> file format.</p>
+        <p class="lead">This project fetches information on premier StarCraft II events and generates feeds as general purpose <code>.json</code> format or in a <code>.ics</code> calendar format that can be imported in Google Calendar, Outlook, iCal and most other calendar applications.</p>
     </div>
 </div>
 
@@ -10,22 +10,42 @@
     <div class="row">
         <div class="col-md-12">
             <h2>How it works</h2>
-            <p>Import the following url in your favorite calendar application. Once the feed is added, it will automatically be kept up to date by your software.</p>
-            <p><code>http://starcraftcalendar.francoisfaubert.com/calendar/sc2/cal.ics</code></p>
+            <p>Import the urls ending with <code>.ics</code> in your favorite calendar application. Once the feed is added, it will automatically be kept up to date by your software.</p>
+            <p>The same information is also available as <code>json</code> format, should you wish to use the information in another precise way.</p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
-            <h2>What is listed</h2>
-            <p>This tool crawls the list of every WCS StarCraft 2 events listed on <a href="http://wcs.battle.net">wcs.battle.net</a>.</p>
+        <div class="col-md-6">
+            <h2>Schedule</h2>
+
+            <h4>Calendar file</h4>
+            <p><code>http://starcraftcalendar.francoisfaubert.com/calendar/sc2/events.ics</code></p>
+
+            <h4>JSON data</h4>
+            <p><code>http://starcraftcalendar.francoisfaubert.com/api/sc2/events.json</code></p>
+
         </div>
-        <div class="col-md-8">
-            <h2>Overview</h2>
+        <div class="col-md-6">
+            <h2>Scores</h2>
+
+            <h4>Calendar file</h4>
+            <p><code>http://starcraftcalendar.francoisfaubert.com/calendar/sc2/scores.ics</code></p>
+
+            <h4>JSON data</h4>
+            <p><code>http://starcraftcalendar.francoisfaubert.com/api/sc2/scores.json</code></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <h2>Latest events</h2>
+
             <table class="table table-striped">
                 <thead>
                     <th>Name</th>
                     <th>Start date</th>
-                    <th>End date</th>
+                    <!-- <th>End date</th> -->
                 </thead>
                 <tbody>
                 <% if @events.length > 0 %>
@@ -37,18 +57,18 @@
                                     <%= event.start_date; %>
                                 </time>
                             </td>
-                            <td>
+                         <!--   <td>
                                 <% if event.has_end_date? %>
                                     <time datetime="<%= event.end_date_utc; %>" data-title="true" title="<%= event.end_date; %>">
                                         <%= event.end_date; %>
                                     </time>
                                 <% end %>
-                            </td>
+                            </td> -->
                         </tr>
                     <% end %>
                 <% else %>
                     <tr>
-                        <td colspan="3">
+                        <td colspan="2">
                             There are currently no events planned.
                         </td>
                     </tr>
@@ -56,12 +76,52 @@
                 </tbody>
             </table>
         </div>
+        <div class="col-md-6">
+            <h2>Latest scores</h2>
+
+            <% if @series.length > 0 %>
+                <% @series.each do |serie| %>
+                    <table class="table table-striped scores">
+                        <thead>
+                            <th colspan="2">
+                                <%= serie.name; %>
+                                <time datetime="<%= serie.start_date_utc; %>" data-title="true" title="<%= serie.start_date; %>">
+                                    <%= serie.start_date; %>
+                                </time>
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%= serie.player1 %></td>
+                                <td class="score"><%= serie.player1_score %></td>
+                            </tr>
+                            <tr>
+                                <td><%= serie.player2 %></td>
+                                <td class="score"><%= serie.player2_score %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <% end %>
+            <% else %>
+                <table class="table table-striped">
+                    <thead><th colspan="2"></th></thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                There are currently no scores availabled.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <% end %>
+        </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
             <h3>Thanks</h3>
-            <p>This tool was not created by and is not directly maintained by Blizzard. All my thanks go to Blizzard for their regular updates which I, in turn, pull out to generate the calendars.</p>
+            <p>This crawls the list of every WCS StarCraft 2 events listed on <a href="http://wcs.battle.net">wcs.battle.net</a>.</p>
+            <p>The tool was not created by and is not directly maintained by Blizzard. All my thanks go to Blizzard for their regular updates which I, in turn, pull out to generate the calendars.</p>
             <p>I hope you will find this tool useful. Your feedback is appreciated.</p>
             <p>~ <a href="https://www.twitter.com/francoisfaubert/">@francoisfaubert</a></p>
         </div>

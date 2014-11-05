@@ -1,6 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.row {
+    margin-bottom: 32px;
+}
+
+.scores {
+    td.score {
+        font-weight: bold;
+        width:100px;
+    }
+}
+
 .muted {
     color:#ccc;
 }
@@ -8,8 +19,6 @@
 .highlighted td {
     font-weight:bold;
 }
-
-
 
 .serie {
     background-color: #fefefe;

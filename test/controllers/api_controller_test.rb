@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MobileControllerTest < ActionController::TestCase
+class ApiControllerTest < ActionController::TestCase
   test "should get schedule" do
     get :schedule
     assert_response :success

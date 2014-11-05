@@ -1,12 +1,20 @@
 class CalendarController < ApplicationController
 
-    def sc2
-        timestamp = Time.now.to_i.to_s
-        events = Wcs.where('start >= ?', timestamp).limit(100).order('start')
-        content = Calendar.generate(events)
+    def events
+        content = Calendar.generateEventList(Wcs.limit(30).order('start'))
 
         if Rails.env.production?
             send_data content,  :filename => "cal.ics"
+        else
+            render plain: content
+        end
+    end
+
+    def scores
+        content = Calendar.generateSeriesList(Serie.limit(30).order('start'))
+
+        if Rails.env.production?
+            send_data content,  :filename => "scores.ics"
         else
             render plain: content
         end

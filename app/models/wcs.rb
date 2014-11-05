@@ -29,6 +29,10 @@ class Wcs < ActiveRecord::Base
             list
         end
 
+        def summary
+            self.name.gsub(/,/, "\\,")
+        end
+
         def start_time
             Time.parse(self.start)
         end

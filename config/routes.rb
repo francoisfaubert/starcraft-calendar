@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'mobile/schedule'
-  get 'mobile/scores'
+  get 'api/schedule'
 
-  #get '/calendar/sc2/:file_name', to: 'calendar#sc2', as: 'sc2'
-  get '/calendar/sc2/cal.ics', to: 'calendar#sc2'
+  get 'api/scores'
+
+  get '/api/sc2/events.ics', to: 'api#events'
+  get '/api/sc2/scores.ics', to: 'api#scores'
+
+  get '/calendar/sc2/events.ics', to: 'calendar#events'
+  get '/calendar/sc2/scores.ics', to: 'calendar#scores'
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
