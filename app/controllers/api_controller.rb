@@ -1,5 +1,5 @@
 class ApiController < ApplicationController
-    def schedule
+    def events
         render :json => Wcs.limit(30).order('start')
     end
 
