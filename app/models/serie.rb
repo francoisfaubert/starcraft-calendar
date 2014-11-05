@@ -81,4 +81,10 @@ class Serie < ActiveRecord::Base
         def today?
             self.start_time.strftime("%Y-%m-%d") == Time.now.strftime("%Y-%m-%d")
         end
+
+        def as_json(options = { })
+            h = super(options)
+            h[:start_date_utc] = self.start_date_utc
+            h
+        end
 end

@@ -92,4 +92,10 @@ class Wcs < ActiveRecord::Base
         def has_end_date?
             !self.end.nil?
         end
+
+        def as_json(options = { })
+            h = super(options)
+            h[:start_date_utc] = self.start_date_utc
+            h
+        end
 end
