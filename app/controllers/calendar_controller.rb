@@ -1,7 +1,7 @@
 class CalendarController < ApplicationController
 
     def events
-        content = Calendar.generateEventList(Wcs.limit(30).order('start'))
+        content = Calendar.generateEventList(Wcs.limit(30).order('start DESC'))
 
         if Rails.env.production?
             send_data content,  :filename => "cal.ics"
@@ -11,7 +11,7 @@ class CalendarController < ApplicationController
     end
 
     def scores
-        content = Calendar.generateSeriesList(Serie.limit(30).order('start'))
+        content = Calendar.generateSeriesList(Serie.limit(30).order('start DESC'))
 
         if Rails.env.production?
             send_data content,  :filename => "scores.ics"

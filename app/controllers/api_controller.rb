@@ -9,10 +9,10 @@ class ApiController < ApplicationController
     end
 
     def events
-        render :json => Wcs.limit(30).order('start')
+        render :json => Wcs.limit(30).order('start DESC')
     end
 
     def scores
-        render :json => Serie.limit(30).order('start')
+        render :json => Serie.limit(30).order('start DESC')
     end
 end
