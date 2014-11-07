@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/calendar/sc2/scores.ics', to: 'calendar#scores'
   get 'welcome/index'
 
+  get 'api', to: 'welcome#api'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

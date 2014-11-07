@@ -21,7 +21,7 @@
 }
 
 .serie {
-    background-color: #fefefe;
+    background-color: #eee;
     border-bottom: 1px solid #ddd;
     border-bottom: 1px solid #fff;
     font-size: 25px;
@@ -47,3 +47,119 @@
 .serie:nth-child(odd) {
     background-color: #efefef;
 }
+
+
+nav {
+    height:100px;
+    ul {
+        float: right;
+    }
+    li {
+        display: inline-block;
+        font-size: 14px;
+        margin-left: 2em;
+        a {
+            text-decoration: none;
+            padding-bottom:0.5em;
+            border-bottom: 1px solid;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: #ccc;
+    font-size: 12px;
+    margin-top:100px;
+    .container {
+        padding:2em 0;
+
+        i {
+            font-size: 50px;
+        }
+    }
+}
+
+
+.phone-app {
+
+    footer {
+        background-color: #0d0918;
+        color:#c2b6e3;
+        border-top: 1px solid #fff;
+    }
+
+    .jumbotron {
+        color: #c2b6e3;
+        background-color: #0d0918;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 120px;
+
+        .container {
+            background:transparent url(hero-header.png) 50% 50% no-repeat;
+            height: 577px;
+            padding-left: 320px;
+
+            h1 {
+                font-size:55px;
+            }
+
+            ul.download {
+                list-style-type: none;
+                margin-top:100px;
+                li {
+                    padding:1em;
+                }
+                .web {
+                    font-size:16px;
+                }
+            }
+
+            .phone {
+                background:transparent url(phone.png) 50% 50% no-repeat;
+                position:absolute;
+                top: 115px;
+                left:0;
+                height: 673px;
+                width: 398px;
+
+                iframe {
+                    position:absolute;
+                    left: 73px;
+                    top: 119px;
+                    height: 411px;
+                    width: 231px;
+                }
+            }
+        }
+    }
+
+
+    .details {
+        .scores {
+            text-align:right;
+        }
+
+        .events {
+            text-align:left;
+            img {
+                float:left;
+            }
+        }
+
+        .calendars {
+            margin-top: 50px;
+        }
+
+        img {
+            float:right;
+            margin: -40px 1em 1em;
+            border:1px solid #3a2d72;
+            box-shadow: 0 5px 20px rgba(0,0,0,.5);
+        }
+    }
+
+}
+
