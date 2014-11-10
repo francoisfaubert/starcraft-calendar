@@ -98,7 +98,7 @@ footer {
         margin-bottom: 120px;
 
         .container {
-            background:transparent image-url("hero-header.png") 50% 50% no-repeat;
+            background:transparent url(<%= asset_path "hero-header.png" %>) 50% 50% no-repeat;
             height: 577px;
             padding-left: 320px;
 
@@ -118,19 +118,20 @@ footer {
             }
 
             .phone {
-                background:transparent image-url("phone.png") 50% 50% no-repeat;
+                background:transparent url(<%= asset_path "phone.png" %>) 50% 50% no-repeat;
                 position:absolute;
-                top: 115px;
-                left:0;
-                height: 673px;
-                width: 398px;
+                top: 55px;
+                left: 25px;
+                height: 754px;
+                width: 475px;
 
                 iframe {
+                    border:none;
                     position:absolute;
-                    left: 73px;
-                    top: 119px;
-                    height: 411px;
-                    width: 231px;
+                    left: 105px;
+                    top: 127px;
+                    height: 474px;
+                    width: 266px;
                 }
             }
         }
