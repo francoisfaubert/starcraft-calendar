@@ -98,7 +98,7 @@ footer {
         margin-bottom: 120px;
 
         .container {
-            background:transparent url(<%= asset_path "hero-header.png" %>) 50% 50% no-repeat;
+            background:transparent url(image-path('hero-header.png')) 50% 50% no-repeat;
             height: 577px;
             padding-left: 320px;
 
@@ -118,7 +118,7 @@ footer {
             }
 
             .phone {
-                background:transparent url(<%= asset_path "phone.png" %>) 50% 50% no-repeat;
+                background:transparent url(image-path('phone.png')) 50% 50% no-repeat;
                 position:absolute;
                 top: 55px;
                 left: 25px;
