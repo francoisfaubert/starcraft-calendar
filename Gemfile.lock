@@ -27,6 +27,8 @@ GEM
       activemodel (= 4.1.7)
       activesupport (= 4.1.7)
       arel (~> 5.0.0)
+    activerecord_url_connections (0.0.7)
+      activerecord
     activesupport (4.1.7)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
@@ -134,6 +136,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord_url_connections
   autoprefixer-rails
   binding_of_caller
   bootstrap-sass (~> 3.2.0)
