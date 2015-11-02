@@ -1,15 +1,17 @@
 StarCraft II Calendar
 =====================
 
-This project fetches date information on the premier StarCraft II events and builds a calendar file that can be imported in Google Calendar, Outlook, iCal and other calendar applications which can read the <code>.ics</code> file format.
+This project fetches information on premier StarCraft II events and generates feeds as general purpose `.json` format or in a `.ics` calendar format that can be imported in Google Calendar, Outlook, iCal and most other calendar applications.
 
 How it works
 ------------
 
 Import the following url in your favorite calendar application. Once the feed is added, it will automatically be kept up to date by your software.
 
-     http://starcraftcalendar.francoisfaubert.com/calendar/sc2/cal.ics
-
+~~~
+http://starcraftcalendar.francoisfaubert.com/calendar/sc2/events.ics
+http://starcraftcalendar.francoisfaubert.com/api/sc2/events.json
+~~~
 
 What is listed
 --------------
