@@ -71,6 +71,7 @@ GEM
     mime-types (2.6.2)
     minitest (5.8.2)
     multi_json (1.11.2)
+    newrelic_rpm (3.14.0.305)
     pg (0.18.3)
     puma (2.14.0)
     rack (1.5.5)
@@ -143,6 +144,7 @@ DEPENDENCIES
   hpricot!
   jbuilder (~> 2.0)
   meta_request
+  newrelic_rpm
   pg
   puma
   rails (= 4.1.7)

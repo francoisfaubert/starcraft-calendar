@@ -5,6 +5,7 @@ gem 'rails', '4.1.7'
 
 gem 'sqlite3', :group => [:test, :development]
 
+gem 'newrelic_rpm'
 gem 'spring', group: :development
 gem 'binding_of_caller'
 gem 'meta_request'
